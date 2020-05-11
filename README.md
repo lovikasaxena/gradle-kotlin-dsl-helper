@@ -4,9 +4,9 @@
 
 # Gradle features used
 * Adding dependencies 
-* Using existing plugins like Kotlin, Spring
-* Creating custom tasks [PENDING]
-* Creating custom plugins [PENDING]
+* Using existing com.lovika.plugins like Kotlin, Spring
+* Creating custom com.lovika.tasks [PENDING]
+* Creating custom com.lovika.plugins [PENDING]
 * Creating a fat jar [PENDING]
 
 # Pre-requisites
