@@ -65,6 +65,27 @@ tasks.withType<Jar>() {
     from(sourcesMain.output)
 }
 
+
+/* Create custom plugin with the build script */
+class MyPlugin1 : Plugin<Project> {
+    override fun apply(project: Project) {
+        // Add a task that uses configuration from the extension object
+        project.task("welcome") {
+            doLast {
+                println("Welcome to this project: Running task-welcome")
+            }
+        }
+    }
+}
+
+/* Apply the plugin created above */
+apply<MyPlugin1>()
+
+/* Executes task "printContent" before predefined task "processResources */
+tasks.named("processResources") {
+    dependsOn("welcome")
+}
+
 /* Plugin imported from another module */
 apply<com.lovika.plugins.PrintingPlugin>()
 
