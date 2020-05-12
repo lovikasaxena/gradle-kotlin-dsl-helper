@@ -15,6 +15,7 @@ open class PrintingPlugin : Plugin<Project> {
                     /* Giving default values */
                     userId = "UNKNOWN"
                     content = "Print me"
+                    fileName = "/myFile.txt"
                 }
     }
 }

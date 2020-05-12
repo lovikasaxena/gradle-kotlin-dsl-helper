@@ -9,12 +9,11 @@ open class Printer: DefaultTask() {
     /* Task needs an empty constructor, hence properties not defined in the primary constructor */
     lateinit var userId: String
     lateinit var content: String
-
-
+    lateinit var fileName: String
 
     @TaskAction /* This annotation marks a method to be a Gradle task */
     fun perform() {
-        val pathname = getProject().getRootDir().getAbsolutePath() + "/myFile.txt"
+        val pathname = getProject().getRootDir().getAbsolutePath() + fileName
         File(pathname).writeText(content)
 
         println("Content printed to file successful by user: $userId")

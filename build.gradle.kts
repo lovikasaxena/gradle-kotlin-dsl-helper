@@ -92,6 +92,7 @@ apply<com.lovika.plugins.PrintingPlugin>()
 tasks.named<com.lovika.tasks.Printer>("printContent") {
     userId = "lovikasaxena"
     content = "Hey, I'm creating my own Task to print"
+    fileName = "/myFile.txt"
 }
 
 /* Executes task "printContent" before predefined task "processResources */
