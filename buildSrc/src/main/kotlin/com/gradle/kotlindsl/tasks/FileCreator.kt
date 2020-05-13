@@ -1,10 +1,10 @@
-package com.lovika.tasks
+package com.gradle.kotlindsl.tasks
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 import java.io.File
 
-open class Printer: DefaultTask() {
+open class FileCreator: DefaultTask() {
 
     /* Task needs an empty constructor, 
     hence properties not defined in the primary constructor */

@@ -1,4 +1,4 @@
-package com.lovika.gradle.kotlindsl
+package com.gradle.kotlindsl
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

@@ -12,7 +12,7 @@ plugins {
 }
 
 /* Project details */
-group = "com.lovika"
+group = "com.gradle.kotlindsl"
 version = "0.0.1-SNAPSHOT"
 description = "kotlintestplugin"
 java.sourceCompatibility = JavaVersion.VERSION_11
@@ -38,7 +38,7 @@ dependencies {
 
 /*
     Gets a collection of all tasks of type "Test". Let's say it returned two tasks A and B.
-    This then executes the code written inside the braces whenever com.lovika.tasks A and B execute.
+    This then executes the code written inside the braces whenever tasks A and B execute.
  */
 tasks.withType<Test> {
     useJUnitPlatform()
@@ -47,14 +47,14 @@ tasks.withType<Test> {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 
 /* Create a fatJar */
 tasks.withType<Jar>() {
     manifest {
-        attributes["Main-Class"]: "com.lovika.gradle.kotlindsl.Application.kt"
+        attributes["Main-Class"] = "com.gradle.kotlindsl.Application.kt"
     }
 
     from(configurations.runtimeClasspath.get()
@@ -68,9 +68,8 @@ tasks.withType<Jar>() {
 /* Create custom plugin with the build script */
 class MyPlugin1 : Plugin<Project> {
     override fun apply(project: Project) {
-        // Add a task that uses configuration from the extension object
         project.task("welcome") {
-            doLast {
+            doFirst {
                 println("Welcome to this project: Running task-welcome")
             }
         }
@@ -86,9 +85,9 @@ tasks.named("processResources") {
 }
 
 /* Plugin imported from another module */
-apply<com.lovika.plugins.PrintingPlugin>()
+apply<com.gradle.kotlindsl.plugins.IOPlugin>()
 
-tasks.named<com.lovika.tasks.Printer>("printContent") {
+tasks.named<com.gradle.kotlindsl.tasks.FileCreator>("createFile") {
     userId = "lovikasaxena"
     content = "Hey, I'm creating my own Task to print"
     fileName = "/myFile.txt"

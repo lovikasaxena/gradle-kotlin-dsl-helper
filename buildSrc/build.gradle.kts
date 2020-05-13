@@ -4,7 +4,7 @@ plugins {
     kotlin("jvm") version "1.3.72"
 }
 
-group = "com.lovika"
+group = "com.gradle.kotlindsl"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
