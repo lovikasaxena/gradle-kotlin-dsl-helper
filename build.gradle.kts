@@ -54,11 +54,10 @@ tasks.withType<KotlinCompile> {
 /* Create a fatJar */
 tasks.withType<Jar>() {
     manifest {
-        attributes("Main-Class': 'com.lovika.gradle.kotlindsl.Application.kt")
+        attributes["Main-Class"]: "com.lovika.gradle.kotlindsl.Application.kt"
     }
 
     from(configurations.runtimeClasspath.get()
-            .onEach { println("add from dependencies: ${it.name}") }
             .map { if (it.isDirectory) it else zipTree(it) })
     val sourcesMain = sourceSets.main.get()
     sourcesMain.allSource.forEach { println("add from sources: ${it.name}") }
