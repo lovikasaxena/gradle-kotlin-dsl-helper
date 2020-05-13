@@ -17,7 +17,6 @@ open class Printer: DefaultTask() {
         val pathname = getProject().getRootDir().getAbsolutePath() + fileName
         File(pathname).writeText(content)
 
-        println("Content printed to file successful by user: $userId")
+        println("Content printed to file successfully by user: $userId")
     }
-
 }
