@@ -6,7 +6,8 @@ import java.io.File
 
 open class Printer: DefaultTask() {
 
-    /* Task needs an empty constructor, hence properties not defined in the primary constructor */
+    /* Task needs an empty constructor, 
+    hence properties not defined in the primary constructor */
     lateinit var userId: String
     lateinit var content: String
     lateinit var fileName: String
